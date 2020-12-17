@@ -100,7 +100,7 @@ def FinalResultForBinary(operator, x1, y1):
     fd = fraction2de(fracz, 10)
     fm = de2fraction(float(fd), 2)
 
-    return (float(b) + float(fm))  # it will be printed
+    return str(b) + str(fm).lstrip("0")  # it will be printed
 
 
 def FinalResultForHexadecimal(operator, x1, y1):
@@ -122,7 +122,7 @@ def FinalResultForHexadecimal(operator, x1, y1):
     fd = fraction2de(fracz, 10)
     fm = de2fraction(float(fd), 16)
 
-    return (str(h) + "." + str(fm)).lstrip("X")
+    return str(h) + "." + str(fm)
 
 
 def FinalResultForOctal(operator, x1, y1):
@@ -135,7 +135,6 @@ def FinalResultForOctal(operator, x1, y1):
         z = str(x1 * y1)
     elif operator == '/':
         z = str(x1 / y1)
-    print("Z value is: ", z)
     resultz = z.split(".")
     if (len(resultz) == 2):
         fracz = resultz[1]
@@ -143,7 +142,8 @@ def FinalResultForOctal(operator, x1, y1):
     o = oct(all2dec(numz, 10)).lstrip("0o").rstrip("L")
     fd = fraction2de(fracz, 10)
     f = de2fraction(float(fd), 8)
-    return (float(o) + float(f))
+
+    return str(o) + str(f).lstrip("0")
 
 
 def FinalResultForDeciaml(operator, x1, y1):
@@ -277,7 +277,12 @@ elif option == 2:
         y = float(int(np2, 2)) + float(fd)
 
         result = FinalResultForBinary(select_operation, x, y)
-        print("Result is: ", result)
+        if result == ".0":
+            result = "0.0"
+            print("Result is: ", result)
+        else:
+            print("Result is: ", result)
+            
     elif choice == 'h':
         fd = fraction2de(fracproblem1, 16)
         x = float(int(np1, 16)) + float(fd)
@@ -285,17 +290,25 @@ elif option == 2:
         fd = fraction2de(fracproblem2, 16)
         y = float(int(np2, 16)) + float(fd)
         result = FinalResultForHexadecimal(select_operation, x, y)
-        print("Result is: ", result)
+        if result == ".0":
+            result = "0.0"
+            print("Result is: ", result)
+        else:
+            print("Result is: ", result)
     elif choice == 'o':
         fd = fraction2de(fracproblem1, 8)
         x = float(int(np1, 8)) + float(fd)
-        print("Type is : ", type(x), "Result is: ", x)
 
         fd = fraction2de(fracproblem2, 8)
         y = float(int(np2, 8)) + float(fd)
-        print("Type is : ", type(y), "Result is: ", np2)
+
         result = FinalResultForOctal(select_operation, x, y)
-        print("Result is: ", result)
+        if result == ".0":
+            result = "0.0"
+            print("Result is: ", result)
+        else:
+            print("Result is: ", result)
+
     else:
         result = FinalResultForDeciaml(select_operation, float(num1), float(num2))
         print("Result is: ", result)

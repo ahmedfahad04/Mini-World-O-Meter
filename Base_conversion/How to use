@@ -1,0 +1,6 @@
+Features: 
+1. It can convert both Integer and Fraction of Different Bases(Octal,binary,Hexadecimal,Decimal). Vice versa is also available.
+2. It can also perform arithematic operation like summation, substractions, multiplications and division. And this can also applicable for binary,hexa,octal and decimal. Fraction number is also allowed.
+
+How to use:
+Its pretty simple as before every input you will be given the instruction about how to input the numbers. Once you run the program you will easily get the idea.

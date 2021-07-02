@@ -1,0 +1,6 @@
+This is a very simple application on desktop notification.
+It simple scrap the stock market data of a specific company and show you the general
+status of that company as a notification in every 1hour.
+
+you may run it as a background application using following command:
+>> pythonw main.py
